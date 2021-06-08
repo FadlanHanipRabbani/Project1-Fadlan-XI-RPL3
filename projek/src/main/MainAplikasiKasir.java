@@ -1,21 +1,22 @@
-package main;
-
-import classes.*;
-
-import java.util.Scanner;
-
 public class MainAplikasiKasir {
 
-    public static void main(String[] args) { }
+    public DaftarMenu daftarMenu;
+
+    public static double PAJAK_PPN = 0.10;
+    public static double BIAYA_SERVICE = 0.05;
+
     public static void main(String[] args) {
         //inisialisasi kelas Scanner untuk mengambil input dari keyboard
         Scanner input = new Scanner(System.in);
+
+        String no_transaksi, nama_pemesan, tanggal, no_meja = "";
+        String transaksi_lagi = "", pesan_lagi = "", keterangan = "", makan_ditempat;
+        int jumlah_pesanan, no_menu;
 
         MainAplikasiKasir app = new MainAplikasiKasir();
         //tampilkan daftar menu
         app.generateDaftarMenu();
     }
-
     public void generateDaftarMenu() {
         daftarMenu = new DaftarMenu();
         daftarMenu.tambahMenu(new Ramen("Ramen Seafood", 25000));
@@ -35,10 +36,8 @@ public class MainAplikasiKasir {
         daftarMenu.tambahMenu(new Minuman("Jus Stroberi", 11000));
         daftarMenu.tambahMenu(new Minuman("Capucino Coffee", 15000));
         daftarMenu.tambahMenu(new Minuman("Vietnam Dripp", 14000));
-
         daftarMenu.tampilDaftarMenu();
     }
 
-    public void generateDaftarMenu() { }
     public DaftarMenu daftarMenu;
 }
