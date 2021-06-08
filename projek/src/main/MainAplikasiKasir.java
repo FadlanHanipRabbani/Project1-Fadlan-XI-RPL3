@@ -2,21 +2,44 @@ public class MainAplikasiKasir {
 
     public DaftarMenu daftarMenu;
 
+    //Tambahkan
     public static double PAJAK_PPN = 0.10;
     public static double BIAYA_SERVICE = 0.05;
+    //End of Tambahkan
 
     public static void main(String[] args) {
         //inisialisasi kelas Scanner untuk mengambil input dari keyboard
         Scanner input = new Scanner(System.in);
 
+        //Tambahkan
         String no_transaksi, nama_pemesan, tanggal, no_meja = "";
         String transaksi_lagi = "", pesan_lagi = "", keterangan = "", makan_ditempat;
         int jumlah_pesanan, no_menu;
+        //End of Tambahkan
 
         MainAplikasiKasir app = new MainAplikasiKasir();
         //tampilkan daftar menu
         app.generateDaftarMenu();
+
+        //mulai transaksi
+        System.out.println("========== TRANSAKSI ==========");
+
+        //ambil data transaksi
+        System.out.println("No. Transaksi : ");
+        no_transaksi = input.next();
+        System.out.println("Pemesan : ");
+        nama_pemesan = input.next();
+        System.out.println("Tanggal : [dd-mm-yyyy] ");
+        tanggal = input.next();
+        System.out.println("Makan ditempat? [Y/N] ");
+        makan_ditempat = input.next();
+
+        if (makan_ditempat.equalsIgnoreCase("Y")) {
+            System.out.print("Nomor Meja : ");
+            no_meja = input.next();
+        }
     }
+
     public void generateDaftarMenu() {
         daftarMenu = new DaftarMenu();
         daftarMenu.tambahMenu(new Ramen("Ramen Seafood", 25000));
@@ -38,6 +61,4 @@ public class MainAplikasiKasir {
         daftarMenu.tambahMenu(new Minuman("Vietnam Dripp", 14000));
         daftarMenu.tampilDaftarMenu();
     }
-
-    public DaftarMenu daftarMenu;
 }
